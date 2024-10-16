@@ -1,0 +1,68 @@
+# find the median of two sorted array:
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int m, n, i;
+    cout << "enter size of a,b: ";
+    cin >> m >> n;
+
+    int a[m], b[n];
+
+    // Input array a
+    for (i = 0; i < m; i++)
+    {
+        cin >> a[i];
+    }
+
+    // Input array b
+    for (i = 0; i < n; i++)
+    {
+        cin >> b[i];
+    }
+
+    // Merging the two arrays into one array c
+    int c[m + n];
+    for (i = 0; i < m; i++)
+    {
+        c[i] = a[i];
+    }
+
+    for (i = 0; i < n; i++)
+    {
+        c[m + i] = b[i];
+    }
+
+    // Sorting array c
+    for(i = 0; i < m + n - 1; i++)
+    {
+        for(int j = i + 1; j < m + n; j++)
+        {
+            if(c[i] > c[j])
+            {
+                int temp = c[i];
+                c[i] = c[j];
+                c[j] = temp;
+            }
+        }
+    }
+
+    // Calculating the median
+    if ((m + n) % 2 == 0)
+    {
+        int mid1 = (m + n) / 2;
+        int mid2 = mid1 - 1;
+        float median = (c[mid1] + c[mid2]) / 2.0;
+        cout << "median = " << median;
+    }
+    else
+    {
+        int mid = (m + n) / 2;
+        cout << "median = " << c[mid];
+    }
+
+    return 0;
+}
