@@ -1,0 +1,62 @@
+#include <iostream>
+#include <set>
+using namespace std;
+class student
+{
+    int score[5];
+
+public:
+    void input()
+    {
+        cout << "enter marks of student" << endl;
+        for (int i = 0; i < 5; i++)
+        {
+            cin >> score[i];
+        }
+    }
+    int total_score()
+    {
+        int count = 0;
+        for (int i = 0; i < 5; i++)
+        {
+            count += score[i];
+        }
+        return count;
+    }
+    void display()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            cout << i << "\t";
+        }
+    }
+};
+int main()
+{
+    int n;
+    cout << "enter no. of student" << endl;
+    cin >> n;
+    student s[n];
+    for (int i = 0; i < n; i++)
+    {
+        s[i].input();
+    }
+    int total = s[0].total_score();
+    cout << "totalscore:" << endl;
+    cout << total << endl;
+    int c = 0;
+    for (int i = 1; i < n; i++)
+    {
+        cout << s[i].total_score() << endl;
+    }
+    for (int i = 1; i < n; i++)
+    {
+
+        int high = s[i].total_score();
+        if (high > total)
+        {
+            c++;
+        }
+    }
+    cout << "student get greater then student1 score is : " << c;
+}
