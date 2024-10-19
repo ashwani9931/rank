@@ -1,0 +1,26 @@
+sorting of array 
+
+
+#include <iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+int main()
+{
+    int n,i;
+    cout<<"enter size of list: ";
+    cin>>n;
+    int value;
+    vector<int> a;
+    for(i=0;i<n;i++)
+    {
+        cin>>value;
+        a.push_back(value);
+    }
+    sort(a.begin(),a.end());
+    for(i=0;i<n;i++)
+    {
+        cout<<a[i];
+    }
+    
+}
